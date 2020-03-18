@@ -1,0 +1,27 @@
+{
+  "name": "galaga",
+  "version": "1.0.0",
+  "description": "An online galaga game with PvP",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sprajjwal/intensive-galaga.git"
+  },
+  "author": "Shashwat Prajjwal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sprajjwal/intensive-galaga/issues"
+  },
+  "homepage": "https://github.com/sprajjwal/intensive-galaga#readme",
+  "devDependencies": {
+    "express": "^4.17.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express-validator": "^6.4.0",
+    "handlebars": "^4.5.3"
+  }
+}
