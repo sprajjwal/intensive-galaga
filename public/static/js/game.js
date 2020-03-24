@@ -1,7 +1,11 @@
 let config = {
-    type: Phaser.WEBGL,
-    width: 500,
-    height: 500,
+    type: Phaser.AUTO,
+    scale: {
+        mode: Phaser.Scale.FIT,
+        parent: 'gal-container',
+        width: 800,
+        height: 600
+    },
     parent: "gal-container",
     backgroundColor: "black",
     physics: {
