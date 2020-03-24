@@ -17,7 +17,34 @@
     <a class="nav-link mr-5 gal-text" href="/create">Multiplayer</a>
   </nav>  
 
-  {{{body}}}
+  <div class="gal-body">
+    <div id="gal-container">
+      
+      {{!-- PUT STUFF FOR BODY IN HERE --}}
+        {{{body}}}
+    </div>
+    <div class="gal-highscore">
+      <table class="table table-hover table-dark mb-0">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each highscores}}
+            <tr>
+              <td>{{this.rank}}</td>
+              <td>{{this.name}}</td>
+              <td>{{this.score}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      
+    </div>
+  </div>
   
     
 
