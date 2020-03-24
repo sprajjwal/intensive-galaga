@@ -26,7 +26,7 @@ app.set('view engine', 'handlebars');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 const cookieParser = require('cookie-parser');
-
+const getHighscores = require('./utils/scores')
 app.use(express.static("public")); // enables supplying static files
 
 // Add after body parser initialization!
@@ -38,28 +38,22 @@ app.use(cookieParser());
 app.get('/', async (req, res) => {
   const highscores = await Leaderboard.findOne({})
   const context = {
-    highscores: highscores.board.map((score, index)=> {
-      const updated_scores = {}
-      updated_scores.rank = index + 1
-      updated_scores.name = score.name
-      updated_scores.score = score.score
-      return updated_scores
-    })
+    highscores: await getHighscores()
   }
   res.render('index', {highscores: context.highscores})
 })
 
 // Defining leaderboard
-let new_score = new Leaderboard()
-new_score.size = 0
-new_score.board = Array(100)
-for (let i = 0; i < 100; i++) {
-  new_score.board[i] = {
-    name: `Player${i+1}`,
-    score: 100-i
-  }
-}
-new_score.save()
+// let new_score = new Leaderboard()
+// new_score.size = 0
+// new_score.board = Array(100)
+// for (let i = 0; i < 100; i++) {
+//   new_score.board[i] = {
+//     name: `Player${i+1}`,
+//     score: 100-i
+//   }
+// }
+// new_score.save()
 
 require('./data/galaga-db');
 require("./controllers/multiplayer")(app);
