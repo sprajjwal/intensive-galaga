@@ -31,12 +31,8 @@ module.exports = function(app) {
     return res.render('multiplayer-form', {lobbies: context.lobbies, highscores: context.highscores})
   })
 
-  app.get('/multiplayer1', async (req, res) => {
-    const lobby =  new Lobby()
-    lobby.name = "test lobby"
-    lobby.currentPlayers = 2
-    lobby.totalPlayers = 4
-    lobby.isComplete = false
+  app.post('/multiplayer', async (req, res) => {
+    const lobby =  new Lobby(req.body)
     lobby.scores = [
       {
         user: "shaash",
@@ -48,6 +44,10 @@ module.exports = function(app) {
       }
     ]
     lobby.save()
-    return res.send("done")
+    return res.redirect('/multiplayer')
+  })
+
+  app.get('/multiplayer/:name', (req, res)=> {
+    return res.render('multiplayer-form')
   })
 }
