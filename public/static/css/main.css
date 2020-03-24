@@ -1,0 +1,55 @@
+body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+body > * {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+h1 {
+  color: white;
+}
+.gal-nav {
+  background-color: #774898;
+}
+
+.gal-text {
+  color: #fdb44b;
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
+.gal-brand {
+  color: #fdb44b;
+  font-weight: 400;
+  font-size: 2em;
+}
+
+.gal-body {
+  display: flex;
+}
+
+.gal-container {
+  min-width: 60vw;
+  min-height: 80vh;
+  margin:5vh 2vw;
+  background-color: #702283;
+}
+
+.gal-highscore {
+  background-color: #fdb44b;
+  min-width: 20vw;
+  height: 80vh;
+  margin:5vh 2vw;
+  overflow:scroll;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  background-color: black;
+}
