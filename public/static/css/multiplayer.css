@@ -10,7 +10,25 @@ tbody.collapse.in {
   margin: 0;
 }
 
-form {
+.gal-lobby-create {
   padding: 3%;
   background-color: #fdb44b;
+  height: 45%;
+  border-top: 1px solid #76b39d;
+}
+
+table {
+  max-height: 60%;
+  overflow: scroll;
+}
+
+.gal-lobby-search {
+  padding: 3%;
+  background-color: #fdb44b;
+  height: 10%;
+}
+
+h2 {
+  background-color: #fdb44b;
+  margin-bottom: 0;
 }

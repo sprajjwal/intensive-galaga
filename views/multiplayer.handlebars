@@ -2,10 +2,20 @@
   <link rel="stylesheet" href="/static/css/multiplayer.css">
 {{!-- add css link or anythin else in here --}}
 {{/section}}
-<div class="gal-container">
-  <form action="/multiplayer" method="POST">
+<div class="gal-container">  
+  <h2 class="text-center">Lobby Search</h2>
+  <form class="form-inline gal-lobby-search" action="/search" method="POST">
+    <h2>Lobby Name:</h2>
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="inputPassword2" class="sr-only">Password</label>
+      <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+  </form>
+
+  <form class="gal-lobby-create" action="/multiplayer" method="POST">
     <h2>CREATE NEW LOBBY</h2>
-    {{#if errorMSG}}<p>Lobby name taken</p>{{/if}}
+    {{#if errorMSG}}<h4 class="text-danger">Lobby name taken</h4>{{/if}}
     <div class="form-group">
       <label for="exampleFormControlInput1">Lobby Name</label>
       <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Lobby Name">
@@ -20,6 +30,8 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+
+
   <table class="table table-hover table-dark mb-0 header">
     <thead>
       <tr>
