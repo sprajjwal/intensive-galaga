@@ -1,0 +1,22 @@
+{{#if isComplete}}<h1> THE WINNER IS {{winnerName}}</h1>{{/if}}
+
+<table class="table table-hover table-dark mb-0">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each results}}
+      <tr>
+        <td>{{this.rank}}</td>
+        <td>{{this.user}}</td>
+        <td>{{this.score}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<button class="btn btn-success" onClick="window.location.reload();">UPDATE SCORES</button>

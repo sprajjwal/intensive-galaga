@@ -37,7 +37,6 @@ app.use(bodyParser.json())
 app.use(cookieParser());
 
 app.get('/', async (req, res) => {
-  const highscores = await Leaderboard.findOne({})
   const context = {
     highscores: await getHighscores()
   }

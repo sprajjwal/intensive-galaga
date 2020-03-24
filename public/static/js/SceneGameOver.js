@@ -3,9 +3,14 @@ class SceneGameOver extends Phaser.Scene {
     super({ key: "SceneGameOver" });
   }
   create(data) {
-    if(data.score > Number(document.getElementsByTagName("tbody")[0].children[99].children[2].innerHTML)){
-      let name = prompt("New highscore! Please enter name");
+    if(data.score > Number(document.getElementsByTagName("tbody")[0].children[99].children[2].innerHTML) || getUrl() !=='/'){
       let url = getUrl()
+      if(url === '/') {
+        let name = prompt("New highscore! Please enter name");
+      } else {
+        let name= getCookie("user")
+      }
+
       let params = `name=${name}&score=${data.score}`
       console.log(params)
       let xhr = new XMLHttpRequest();
@@ -75,4 +80,24 @@ class SceneGameOver extends Phaser.Scene {
 
 let getUrl = () => {
   return location.href
+}
+
+function getCookie(name) {
+  // Split cookie string and get all individual name=value pairs in an array
+  var cookieArr = document.cookie.split(";");
+  
+  // Loop through the array elements
+  for(var i = 0; i < cookieArr.length; i++) {
+      var cookiePair = cookieArr[i].split("=");
+      
+      /* Removing whitespace at the beginning of the cookie name
+      and compare it with the given string */
+      if(name == cookiePair[0].trim()) {
+          // Decode the cookie value and return
+          return decodeURIComponent(cookiePair[1]);
+      }
+  }
+  
+  // Return null if not found
+  return null;
 }

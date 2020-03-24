@@ -6,31 +6,31 @@ class SceneMain extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("sprBg0", "static/content/sprBg0.png");
-    this.load.image("sprBg0", "static/content/sprBg0.png");
-    this.load.image("sprBg1", "static/content/sprBg1.png");
-    this.load.spritesheet("sprExplosion", "static/content/sprExplosion.png", {
+    this.load.image("sprBg0", "/static/content/sprBg0.png");
+    this.load.image("sprBg0", "/static/content/sprBg0.png");
+    this.load.image("sprBg1", "/static/content/sprBg1.png");
+    this.load.spritesheet("sprExplosion", "/static/content/sprExplosion.png", {
       frameWidth: 32,
       frameHeight: 32
     });
-    this.load.spritesheet("sprEnemy0", "static/content/sprEnemy0.png", {
+    this.load.spritesheet("sprEnemy0", "/static/content/sprEnemy0.png", {
       frameWidth: 16,
       frameHeight: 16
     });
-    this.load.image("sprEnemy1", "static/content/sprEnemy1.png");
-    this.load.spritesheet("sprEnemy2", "static/content/sprEnemy2.png", {
+    this.load.image("sprEnemy1", "/static/content/sprEnemy1.png");
+    this.load.spritesheet("sprEnemy2", "/static/content/sprEnemy2.png", {
       frameWidth: 16,
       frameHeight: 16
     });
-    this.load.image("sprLaserEnemy0", "static/content/sprLaserEnemy0.png");
-    this.load.image("sprLaserPlayer", "static/content/sprLaserPlayer.png");
-    this.load.spritesheet("sprPlayer", "static/content/sprPlayer.png", {
+    this.load.image("sprLaserEnemy0", "/static/content/sprLaserEnemy0.png");
+    this.load.image("sprLaserPlayer", "/static/content/sprLaserPlayer.png");
+    this.load.spritesheet("sprPlayer", "/static/content/sprPlayer.png", {
       frameWidth: 16,
       frameHeight: 16
     });
-    this.load.audio("sndExplode0", "static/content/sndExplode0.wav");
-    this.load.audio("sndExplode1", "static/content/sndExplode1.wav");
-    this.load.audio("sndLaser", "static/content/sndLaser.wav");
+    this.load.audio("sndExplode0", "/static/content/sndExplode0.wav");
+    this.load.audio("sndExplode1", "/static/content/sndExplode1.wav");
+    this.load.audio("sndLaser", "/static/content/sndLaser.wav");
   }
 
   getEnemiesByType(type) {
