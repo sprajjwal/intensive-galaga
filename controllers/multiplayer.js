@@ -1,5 +1,6 @@
 const Leaderboard = require('../models/leaderboard')
 const Lobby = require('../models/lobby')
+const getHighscore = require("../utils/scores")
 
 module.exports = function(app) {
   // send high score here
@@ -23,9 +24,10 @@ module.exports = function(app) {
   app.get('/multiplayer', async (req, res) => {
     const lobbies = await Lobby.find({})
     const context = {
-      lobbies: lobbies.map(lobby => lobby.toJSON())
+      lobbies: lobbies.map(lobby => lobby.toJSON()),
+      highscores: await getHighscore()
     }
-    return res.render('multiplayer-form', {lobbies: context.lobbies})
+    return res.render('multiplayer-form', {lobbies: context.lobbies, highscores: context.highscores})
   })
 
   app.get('/multiplayer1', async (req, res) => {
