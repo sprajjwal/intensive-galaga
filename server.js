@@ -1,7 +1,9 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
+const schedule = require('node-schedule');
 const Leaderboard = require('./models/leaderboard')
+const Lobby = require('./models/lobby')
 // require('dotenv').config();
 // const path = require('path')
 
@@ -42,6 +44,15 @@ app.get('/', async (req, res) => {
   }
   res.render('index', {highscores: context.highscores})
 })
+
+var j = schedule.scheduleJob('0 0 0 * * *', async function(){
+  const lobbies = Lobby.find({})
+  for (lobby of lobbies) {
+    if (lobby.isComplete) {
+      await Lobby.deleteOne({name: lobby.name})
+    }
+  }
+});
 
 // Defining leaderboard
 // let new_score = new Leaderboard()
