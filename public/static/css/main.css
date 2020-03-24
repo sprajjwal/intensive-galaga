@@ -32,9 +32,18 @@ h1 {
 .gal-body {
   display: flex;
 }
+#score {
+  color: white;
+  margin: 10px;
+  font-size: 20px;
+}
 
-.gal-container {
-  min-width: 60vw;
+#gal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60vw;
   min-height: 80vh;
   margin:5vh 2vw;
   background-color: #702283;

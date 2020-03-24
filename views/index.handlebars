@@ -1,11 +1,13 @@
 
 {{#section 'head'}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.22.0/phaser.js"></script>
 {{!-- add css link or anythin else in here --}}
 {{/section}}
 
 
 <div class="gal-body">
-  <div class="gal-container">
+  <div id="gal-container">
+    <div id="score">Score: 0</div>
     {{!-- PUT STUFF FOR BODY IN HERE --}}
     
   </div>
@@ -34,5 +36,9 @@
 </div>
 
 {{#section 'script'}}
-{{!-- LINK SCRIPTS HERE --}}
+<script src="static/js/Entities.js"></script>
+<script src="static/js/SceneMainMenu.js"></script>
+<script src="static/js/SceneMain.js"></script>
+<script src="static/js/SceneGameOver.js"></script>
+<script src="static/js/game.js"></script>
 {{/section}}
