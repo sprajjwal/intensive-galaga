@@ -47,6 +47,7 @@ h1 {
   min-height: 80vh;
   margin:5vh 2vw;
   background-color: #702283;
+  position: relative;
 }
 
 .gal-highscore {
@@ -61,4 +62,9 @@ thead th {
   position: sticky;
   top: 0;
   background-color: black;
+}
+
+.header {
+  position: absolute;
+  top: 0;
 }
