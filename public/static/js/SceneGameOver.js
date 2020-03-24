@@ -5,7 +5,7 @@ class SceneGameOver extends Phaser.Scene {
   create(data) {
     if(data.score > Number(document.getElementsByTagName("tbody")[0].children[99].children[2].innerHTML)){
       let name = prompt("New highscore! Please enter name");
-      let url = "/add_score";
+      let url = getUrl()
       let params = `name=${name}&score=${data.score}`
       console.log(params)
       let xhr = new XMLHttpRequest();
@@ -71,4 +71,8 @@ class SceneGameOver extends Phaser.Scene {
       this.backgrounds[i].update();
     }
   }
+}
+
+let getUrl = () => {
+  return location.href
 }
