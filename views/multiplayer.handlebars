@@ -36,15 +36,15 @@
     <thead>
       <tr>
         <th scope="col">Name</th>
-        <th scope="col">Score</th>
+        <th scope="col">People</th>
       </tr>
     </thead>
     {{#each lobbies}}
       <tbody>
-        <a href="/multiplayer/{{this.name}}"><tr>
-          <td>{{this.name}}</td>
+        <tr>
+          <td><a href="/multiplayer/{{this.name}}">{{this.name}}</a></td>
           <td>{{this.currentPlayers}}/{{this.totalPlayers}}</td>
-        </tr></a>
+        </tr>
       </tbody>
     {{/each}}
   </table>

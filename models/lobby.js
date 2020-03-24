@@ -7,11 +7,11 @@ const LobbySchema = new Schema({
   currentPlayers: {type: Number, default: 0},
   isComplete: {type: Boolean, default: false},
   scores: [{
-    user: {type: String, required: true},
+    user: {type: String,},
     score: {type: Number}
   }],
   createdAt: {type: Date}
-});
+},  { minimize: false });
 
 LobbySchema.pre("save", function(next) {
   const now = new Date();

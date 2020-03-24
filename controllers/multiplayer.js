@@ -33,18 +33,9 @@ module.exports = function(app) {
 
   app.post('/multiplayer', async (req, res) => {
     const lobby =  new Lobby(req.body)
-    lobby.scores = [
-      {
-        user: "shaash",
-        score: 53
-      },
-      {
-        user: "sal",
-        score: 21
-      }
-    ]
     try{
       await lobby.save()
+      return res.redirect('/multiplayer')
     } catch (err) {
       const lobbies = await Lobby.find({})
       const context = {
@@ -53,11 +44,14 @@ module.exports = function(app) {
       }
       return res.render('multiplayer', {lobbies: context.lobbies, highscores: context.highscores, errorMSG: true})
     }
-    
-    return res.redirect('/multiplayer')
   })
 
-  app.get('/multiplayer/:name', (req, res)=> {
-    return res.render('multiplayer-form')
+  app.get('/multiplayer/:name', async (req, res)=> {
+    console.log(req.params.name)
+    const context = {
+      lobby: req.params.name,
+      highscores: await getHighscore()
+    }
+    return res.render('multiplayer-form', {lobbyName: context.lobby, highscores: context.highscores})
   })
 }

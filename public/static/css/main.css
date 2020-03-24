@@ -58,9 +58,8 @@ h1 {
   overflow:scroll;
 }
 
-thead th {
+thead th{
   position: sticky;
-  top: 0;
+  top: 1;
   background-color: black;
 }
-
