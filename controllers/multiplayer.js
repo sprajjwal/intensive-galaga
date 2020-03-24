@@ -5,10 +5,11 @@ const getHighscore = require("../utils/scores")
 module.exports = function(app) {
   // send high score here
   app.post('/add_score', async (req, res) => {
-    // const player = req.body.player
-    const player = {}
-    player.name = "shaash"
-    player.score = 100000
+    const player = req.body
+    console.log(player.score)
+    // const player = {}
+    // player.name = "shaash"
+    // player.score = 100000
     let leaderboard = await Leaderboard.findOne({})
     for (index in leaderboard.board) {
       if (leaderboard.board[index].score < player.score) {

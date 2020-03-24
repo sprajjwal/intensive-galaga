@@ -31,7 +31,8 @@ app.use(express.static("public")); // enables supplying static files
 
 // Add after body parser initialization!
 app.use(expressValidator());
-
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 // enable JWT
 app.use(cookieParser());
 
