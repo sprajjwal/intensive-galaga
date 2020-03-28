@@ -3,26 +3,25 @@ class SceneGameOver extends Phaser.Scene {
     super({ key: "SceneGameOver" });
   }
   create(data) {
-    if(data.score > Number(document.getElementsByTagName("tbody")[0].children[99].children[2].innerHTML)){
-      let parser = document.createElement('a');
-      let url = getUrl();
-      parser.href = url
-      console.log(parser.pathname)
-      let name;
-      if(parser.pathname === '/') {
-        name = prompt("New highscore! Please enter name");
-      } else {
-        console.log("in here")
-        name= getCookie("user")
-      }
-
-      let params = `name=${name}&score=${data.score}`
-      console.log(params)
-      let xhr = new XMLHttpRequest();
-      xhr.open("POST", url, true)
-      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xhr.send(params);
+    
+    let parser = document.createElement('a');
+    let url = getUrl();
+    parser.href = url
+    console.log(parser.pathname)
+    let name;
+    if(parser.pathname === '/') {
+      name = prompt("New highscore! Please enter name");
+    } else {
+      name= getCookie("user")
     }
+
+    let params = `name=${name}&score=${data.score}`
+    console.log(params)
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true)
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send(params);
+    
     this.backgrounds = [];
     for (var i = 0; i < 5; i++) {
       let keys = ["sprBg0", "sprBg1"];

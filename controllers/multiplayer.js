@@ -148,12 +148,15 @@ module.exports = function(app) {
         flag = false
       }
     }
-    console.log("WOOASGKNASKNG",scoresDecreasing)
     scoresDecreasing = scoresDecreasing.map((score, index)=> {
       const updated_scores = {}
       updated_scores.rank = index + 1
       updated_scores.user = score.user
-      updated_scores.score = score.score
+      if (score.score === -1) {
+        updated_scores.score = "Awaiting score"
+      } else {
+        updated_scores.score = score.score
+      }
       return updated_scores
     })
     const context = {
@@ -161,6 +164,7 @@ module.exports = function(app) {
       results: scoresDecreasing,
       isComplete: lobby.isComplete
     }
+    console.log("complete___---------->", lobby.isComplete)
     if (lobby.isComplete) {
       context.winnerName = scoresDecreasing[0].user
       context.winnerScore = scoresDecreasing[0].score
