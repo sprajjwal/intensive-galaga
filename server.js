@@ -55,16 +55,16 @@ var j = schedule.scheduleJob('0 0 0 * * *', async function(){
 });
 
 // Defining leaderboard
-let new_score = new Leaderboard()
-new_score.size = 0
-new_score.board = Array(100)
-for (let i = 0; i < 100; i++) {
-  new_score.board[i] = {
-    name: `Player${i+1}`,
-    score: 100-i
-  }
-}
-new_score.save()
+// let new_score = new Leaderboard()
+// new_score.size = 0
+// new_score.board = Array(100)
+// for (let i = 0; i < 100; i++) {
+//   new_score.board[i] = {
+//     name: `Player${i+1}`,
+//     score: 100-i
+//   }
+// }
+// new_score.save()
 
 require('./data/galaga-db');
 require("./controllers/multiplayer")(app);
