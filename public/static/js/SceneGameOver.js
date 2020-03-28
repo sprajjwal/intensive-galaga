@@ -3,12 +3,17 @@ class SceneGameOver extends Phaser.Scene {
     super({ key: "SceneGameOver" });
   }
   create(data) {
-    if(data.score > Number(document.getElementsByTagName("tbody")[0].children[99].children[2].innerHTML) || getUrl() !=='/'){
-      let url = getUrl()
-      if(url === '/') {
-        let name = prompt("New highscore! Please enter name");
+    if(data.score > Number(document.getElementsByTagName("tbody")[0].children[99].children[2].innerHTML)){
+      let parser = document.createElement('a');
+      let url = getUrl();
+      parser.href = url
+      console.log(parser.pathname)
+      let name;
+      if(parser.pathname === '/') {
+        name = prompt("New highscore! Please enter name");
       } else {
-        let name= getCookie("user")
+        console.log("in here")
+        name= getCookie("user")
       }
 
       let params = `name=${name}&score=${data.score}`
