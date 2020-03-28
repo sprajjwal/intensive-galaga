@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 assert =  require("assert")
 
-const url = "mongodb://localhost:27017/galaga-db";
+const url = process.env.MONGODB_URI || "mongodb://localhost:27017/galaga-db";
 mongoose.Promise = global.Promise;
 mongoose.connect(
   url,
