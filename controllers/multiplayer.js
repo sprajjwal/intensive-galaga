@@ -111,7 +111,7 @@ module.exports = function(app) {
     }
 
     for (index in lobby.scores) {
-      if (lobby.scores[index].user === username) {
+      if (lobby.scores[index].user === username & lobby.scores[index].score !== -1) {
         lobby.scores[index].score = score
         lobby.scoredPlayers += 1
         lobby.markModified("score")
@@ -120,6 +120,7 @@ module.exports = function(app) {
           lobby.isComplete = true
           lobby.markModified("isComplete")
         }
+        break
       }
     }
     lobby.save()

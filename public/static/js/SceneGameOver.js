@@ -21,11 +21,6 @@ class SceneGameOver extends Phaser.Scene {
     xhr.open("POST", url, true)
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send(params);
-    if(url.split("/")[5] == "game"){
-      console.log()
-      let results = url.replace(/\/[^\/]*$/, '/results')
-      window.location.href = results
-    }
     
     this.backgrounds = [];
     for (var i = 0; i < 5; i++) {
@@ -79,6 +74,11 @@ class SceneGameOver extends Phaser.Scene {
       },
       this
     );
+    if(url.split("/")[5] == "game"){
+      console.log()
+      let results = url.replace(/\/[^\/]*$/, '/results')
+      window.location.href = results
+    }
   }
   update(){
     for (let i = 0; i < this.backgrounds.length; i++) {
